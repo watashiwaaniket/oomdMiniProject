@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background-color: #f2f2f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #1d1d1f;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.newsletter-section, .weather-widget, .blog-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.newsletter-section:hover, .weather-widget:hover, .blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+.newsletter-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1d1d1f;
+}
+
+.newsletter-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #515154;
+}
+
+#subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#subscribe-form input {
+  padding: 0.75rem;
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#subscribe-form input:focus {
+  outline: none;
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.3);
+}
+
+#subscribe-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: #0071e3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#subscribe-form button:hover {
+  background-color: #0077ed;
+}
+
+.blog-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1d1d1f;
+  text-align: center;
+}
+
+.blog-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #1d1d1f;
+}
+
+.blog-card p {
+  font-size: 1rem;
+  color: #515154;
+}
+
+.weather-widget {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.weather-widget h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1d1d1f;
+}
+
+.weather-widget p {
+  font-size: 1rem;
+  color: #515154;
+  margin-bottom: 0.5rem;
+}
+
+.weather-widget strong {
+  color: #1d1d1f;
+}
