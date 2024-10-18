@@ -1,5 +1,5 @@
 function getWeather(lat, lon) {
-    axios.get(`/weather?lat=${lat}&lon=${lon}`)
+    axios.get(`/api/weather?lat=${lat}&lon=${lon}`)
         .then(response => {
             const weather = response.data;
             updateWeatherWidget(weather);
@@ -27,10 +27,10 @@ function subscribe(event) {
     const lat = document.getElementById('lat').value;
     const lon = document.getElementById('lon').value;
 
-    axios.post('/subscribe', { email, lat, lon })
+    axios.post('/api/subscribe', { email, lat, lon })
         .then(response => {
             alert('Subscription successful!');
-            getWeather(lat, lon); // Fetch weather data after successful subscription
+            getWeather(lat, lon);
         })
         .catch(error => {
             console.error('Error subscribing:', error);

@@ -1,36 +1,11 @@
-const express = require('express');
-const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const axios = require('axios');
-const cron = require('node-cron');
-const path = require('path');
-require('dotenv').config(); // Load environment variables
 
-const app = express();
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../public')));
-
-let subscribers = [];
-
-app.post('/subscribe', (req, res) => {
-    const { email, lat, lon } = req.body;
-    sendConfirmationEmail(email);
-    res.json({ message: 'Subscription successful' });
-});
-
-app.get('/weather', async (req, res) => {
-    const { lat, lon } = req.query;
-    try {
-        const weatherData = await getWeather(lat, lon);
-        res.json(weatherData);
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch weather data' });
-    }
-});
-
-
-// Function to send confirmation email
-function sendConfirmationEmail(email) {
+module.exports = async (req, res) => {
+  const { email, lat, lon } = req.body;
+  
+  // Your email sending logic here
+  // Use nodemailer to send emails
+  function sendConfirmationEmail(email) {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -55,7 +30,6 @@ function sendConfirmationEmail(email) {
     });
 }
 
-// Subscribe endpoint
 app.post('/subscribe', (req, res) => {
     const { email } = req.body;
     if (email) {
@@ -112,7 +86,5 @@ cron.schedule('0 8 * * *', () => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+  res.json({ message: 'Subscription successful' });
+};
